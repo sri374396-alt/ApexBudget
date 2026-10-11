@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApexBudget — Sign In</title>
+  <meta name="description" content="Sign in or create your ApexBudget account to start tracking your personal finances.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body data-theme="dark">
+
+  <!-- Animated Background Orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
+  <!-- Noise Texture Overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Main Auth Layout -->
+  <div class="auth-layout">
+
+    <!-- Left Brand Panel -->
+    <aside class="brand-panel" aria-label="Brand information">
+      <div class="brand-panel-inner">
+        <div class="brand-logo">
+          <div class="brand-logo-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a8 8 0 0 1-16 0V6"/>
+              <path d="M18 12h.01"/>
+            </svg>
+          </div>
+          <div>
+            <h1 class="brand-name">ApexBudget</h1>
+            <p class="brand-sub">Personal Finance Planner</p>
+          </div>
+        </div>
+
+        <div class="brand-hero">
+          <h2 class="brand-headline">Master your<br><span class="gradient-text">financial future</span><br>today.</h2>
+          <p class="brand-desc">Track income and expenses, visualize spending patterns, and stay ahead of your monthly budget — all stored securely in your browser.</p>
+        </div>
+
+        <!-- Feature Pills -->
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="feature-dot income-dot"></span>
+            <span class="feature-label">Real-time budget tracking</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-dot primary-dot"></span>
+            <span class="feature-label">Interactive spending charts</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-dot warning-dot"></span>
+            <span class="feature-label">Smart financial insights</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-dot expense-dot"></span>
+            <span class="feature-label">100% private — stored locally</span>
+          </div>
+        </div>
+
+        <!-- Floating Stats Card -->
+        <div class="stats-card" aria-label="App statistics">
+          <div class="stat-item">
+            <span class="stat-val">$0</span>
+            <span class="stat-label">Ready to track</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-val">&#8734;</span>
+            <span class="stat-label">Categories</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-val">&#128274;</span>
+            <span class="stat-label">100% Local</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Auth Card -->
+    <main class="auth-panel" id="auth-panel">
+
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme" aria-label="Toggle dark/light theme">
+        <svg id="sun-icon" class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg id="moon-icon" class="theme-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <!-- Auth Card -->
+      <div class="auth-card" id="auth-card">
+
+        <!-- Tab Switcher -->
+        <div class="auth-tabs" role="tablist" aria-label="Authentication mode">
+          <button class="auth-tab active" id="signin-tab" role="tab" aria-selected="true" aria-controls="signin-view">Sign In</button>
+          <button class="auth-tab" id="signup-tab" role="tab" aria-selected="false" aria-controls="signup-view">Create Account</button>
+          <div class="tab-indicator" id="tab-indicator"></div>
+        </div>
+
+        <!-- SIGN IN VIEW -->
+        <div class="auth-view active" id="signin-view" role="tabpanel" aria-labelledby="signin-tab">
+          <div class="auth-view-header">
+            <div class="auth-view-badge">
+              <span>&#128075;</span>
+            </div>
+            <div>
+              <h2 class="auth-title">Welcome back!</h2>
+              <p class="auth-subtitle">Sign in to access your budget dashboard</p>
+            </div>
+          </div>
+
+          <form id="signin-form" novalidate>
+            <div class="form-group">
+              <label for="signin-email" class="form-label">Email address</label>
+              <div class="input-wrap">
+                <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <input type="email" id="signin-email" class="auth-input" placeholder="you@example.com" autocomplete="email" required>
+              </div>
+              <span class="field-error hidden" id="signin-email-err">Please enter a valid email.</span>
+            </div>
+
+            <div class="form-group">
+              <div class="label-row">
+                <label for="signin-password" class="form-label">Password</label>
+                <button type="button" id="forgot-btn" class="link-btn">Forgot password?</button>
+              </div>
+              <div class="input-wrap">
+                <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <input type="password" id="signin-password" class="auth-input" placeholder="Enter your password" autocomplete="current-password" required>
+                <button type="button" class="eye-btn" data-target="signin-password" aria-label="Toggle password visibility">
+                  <svg class="eye-icon show-eye" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <svg class="eye-icon hide-eye hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </button>
+              </div>
+              <span class="field-error hidden" id="signin-password-err">Password is required.</span>
+            </div>
+
+            <div class="remember-row">
+              <label class="checkbox-label">
+                <input type="checkbox" id="remember-me" class="custom-checkbox">
+                <span class="checkbox-track"></span>
+                <span class="checkbox-text">Remember me for 30 days</span>
+              </label>
+            </div>
+
+            <div class="auth-error-banner hidden" id="signin-error" role="alert">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span id="signin-error-msg">Invalid credentials. Please try again.</span>
+            </div>
+
+            <button type="submit" id="signin-btn" class="auth-submit-btn">
+              <span id="signin-btn-text">Sign In to Dashboard</span>
+              <div class="btn-spinner hidden" id="signin-spinner"></div>
+              <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+
+          <div class="auth-divider"><span>or continue as guest</span></div>
+
+          <button id="guest-btn" class="auth-guest-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Continue as Guest (No Account)
+          </button>
+
+          <p class="auth-switch">Don't have an account? <button type="button" class="link-btn" id="go-signup">Create one free &rarr;</button></p>
+        </div>
+
+        <!-- SIGN UP VIEW -->
+        <div class="auth-view" id="signup-view" role="tabpanel" aria-labelledby="signup-tab">
+          <div class="auth-view-header">
+            <div class="auth-view-badge signup-badge">
+              <span>&#10024;</span>
+            </div>
+            <div>
+              <h2 class="auth-title">Create account</h2>
+              <p class="auth-subtitle">Start your financial journey in 30 seconds</p>
+            </div>
+          </div>
+
+          <form id="signup-form" novalidate>
+            <div class="form-group">
+              <label for="signup-name" class="form-label">Full Name</label>
+              <div class="input-wrap">
+                <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <input type="text" id="signup-name" class="auth-input" placeholder="Your full name" autocomplete="name" required>
+              </div>
+              <span class="field-error hidden" id="signup-name-err">Name must be at least 2 characters.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="signup-email" class="form-label">Email address</label>
+              <div class="input-wrap">
+                <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <input type="email" id="signup-email" class="auth-input" placeholder="you@example.com" autocomplete="email" required>
+              </div>
+              <span class="field-error hidden" id="signup-email-err">Please enter a valid email.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="signup-password" class="form-label">Password</label>
+              <div class="input-wrap">
+                <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <input type="password" id="signup-password" class="auth-input" placeholder="Minimum 8 characters" autocomplete="new-password" required>
+                <button type="button" class="eye-btn" data-target="signup-password" aria-label="Toggle password visibility">
+                  <svg class="eye-icon show-eye" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <svg class="eye-icon hide-eye hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </button>
+              </div>
+              <span class="field-error hidden" id="signup-password-err">Password must be at least 8 characters.</span>
+              <!-- Password Strength Meter -->
+              <div class="strength-meter" id="strength-meter">
+                <div class="strength-bar">
+                  <div class="strength-fill" id="strength-fill"></div>
+                </div>
+                <span class="strength-label" id="strength-label">Strength</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="signup-confirm" class="form-label">Confirm Password</label>
+              <div class="input-wrap">
+                <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <input type="password" id="signup-confirm" class="auth-input" placeholder="Repeat your password" autocomplete="new-password" required>
+              </div>
+              <span class="field-error hidden" id="signup-confirm-err">Passwords do not match.</span>
+            </div>
+
+            <label class="terms-label">
+              <input type="checkbox" id="terms-check" class="custom-checkbox" required>
+              <span class="checkbox-track"></span>
+              <span class="terms-text">I agree that data is stored locally in this browser only. No servers involved.</span>
+            </label>
+
+            <div class="auth-error-banner hidden" id="signup-error" role="alert">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span id="signup-error-msg">An account with this email already exists.</span>
+            </div>
+
+            <button type="submit" id="signup-btn" class="auth-submit-btn">
+              <span id="signup-btn-text">Create My Account</span>
+              <div class="btn-spinner hidden" id="signup-spinner"></div>
+              <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+
+          <p class="auth-switch">Already have an account? <button type="button" class="link-btn" id="go-signin">Sign in &rarr;</button></p>
+        </div>
+
+      </div><!-- /.auth-card -->
+
+      <div class="auth-footer-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span>All data is stored securely in your browser's <code>localStorage</code>. Nothing leaves your device.</span>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>
